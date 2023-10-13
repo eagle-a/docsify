@@ -1,6 +1,6 @@
-# 最迷人123123的营长
+# 最迷人的湛蓝
 
-> [个人博客](https://blog.csdn.net/m0_37965018)
+> [个人博客]([CSDN](https://blog.csdn.net/weixin_73798622?spm=1000.2115.3001.5343))
 
 
 > [GitHub](https://github.com/Corefo/ "github")

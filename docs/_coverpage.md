@@ -1,8 +1,4 @@
 # Myblogs
 
-
-> 我要开始装逼了
-
-
-[CSDN](https://blog.csdn.net/m0_37965018)
+[CSDN](https://blog.csdn.net/weixin_73798622?spm=1000.2115.3001.5343)
 [滚动鼠标](#introduction)
