@@ -24,11 +24,9 @@ echo X. 退出
 set /p choice=请输入数字选择操作:  
   
 if "%choice%"=="f" (  
-    echo 请输入提交信息:  
-    set /p declation=  
     echo 开始添加变更:git add .  
     git add .  
-    git commit -m "%declation%"  
+    git commit -m "bat批处理自动推送:%date:~0,10%,%time:~0,8%"  
     git push -u origin main
     echo;  
     goto :continue  
@@ -42,9 +40,7 @@ if "%choice%"=="1" (
 )
 
 if "%choice%"=="2" (
-    set /p declation=输入提交的commit信息:
-    echo;
-    echo 提交变更:git commit -m "%declation%"
+    echo 提交变更:git commit -m "bat批处理自动推送:%date:~0,10%,%time:~0,8%"  
     git commit -m "%declation%"
     echo;
     goto :continue
