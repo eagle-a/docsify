@@ -17,30 +17,31 @@
 
     <style>
       * {
-          box-sizing: border-box;
-          text-align: center;
-          margin: 0;
-          padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0;
+        padding: 0;
       }
       header {
-          color: #FFF;
-          padding: 20px;
-          background-color: #7BE0AD;
+        color: #fff;
+        padding: 20px;
+        background-color: #7be0ad;
       }
       main {
-          padding: 20px;
-          border: 2px  #457B9D;
+        padding: 20px;
+        border: 2px #457b9d;
       }
       footer {
-          background-color: #457B9D;
+        background-color: #457b9d;
       }
-  </style>
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <script>
       window.$docsify = {
         name: "zhanming",
+        logo: "",
         repo: "https://eagle-a.github.io",
         loadSidebar: true,
         themeColor: "#25798A",
@@ -92,17 +93,11 @@
           pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/,
         },
       };
-      $(document).ready(function () {
-        $.goup({
-          trigger: 100,
-          bottomOffset: 32,
-          locationOffset: 32,
-          title: "TOP",
-          titleAsText: true,
-        });
-      });
-    </script>
+      $(document).ready(function () { $.goup({ trigger: 100, bottomOffset: 32,
+    locationOffset: 32, title: "TOP", titleAsText: true, }); });
     <!-- 访问量统计 -->
+    </script>
+
     <script
       async
       src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
@@ -173,7 +168,6 @@
       }
       siteTime();
     </script>
-   
 
     <!-- alert 样式 -->
     <link
@@ -212,14 +206,16 @@
     <script src="https://wugenqiang.github.io/CS-Notes/plugin/jquery.js"></script>
 
     <script src="https://wugenqiang.github.io/CS-Notes/plugin/jquery.goup.js"></script>
-   
+
     <!-- mouse click -->
     <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
-   
-    <footer>
-      <span id='sitetime'></span> <br> <span>© 2023 - 至今</span>
-      <a href='https://eagle-a.github.io' target='_blank'> Enjoy To Share Blog</a>
-  </footer>
 
+    <footer>
+      <span id="sitetime"></span> <br />
+      <span>© 2023 - 至今</span>
+      <a href="https://eagle-a.github.io" target="_blank">
+        Enjoy To Share Blog</a
+      >
+    </footer>
   </body>
 </html>
