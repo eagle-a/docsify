@@ -20,7 +20,8 @@ echo 7. 推送到远程主分支
 echo 8. 切换到分支  
 echo 9. 拉取远程主分支到本地分支  
 echo X. 退出  
-  
+
+:continue
 set /p choice=请输入数字选择操作:  
   
 if "%choice%"=="f" (  
@@ -104,7 +105,7 @@ if "%choice%"=="X" (
     goto :eof
 )
 
-:continue
+:eof
 echo 执行完毕！
 echo;
 
