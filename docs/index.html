@@ -3,105 +3,75 @@
   <head>
     <title>湛明</title>
     <meta charset="UTF-8" />
-    <title>Document</title>
+  
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Description" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css"
+    /> -->
+
+    <!-- 网站页签图标 -->
+    <link
+      rel="shortcut icon"
+      href="public/image/erci.ico"
+      type="image/x-icon"
     />
-  <!-- 网站页签图标 -->
-  <link rel="shortcut icon" href="public/image/favicon.ico" type="image/x-icon" />
-    <style>
-      * {
-        box-sizing: border-box;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        color: #fff;
-        padding: 20px;
-        background-color: #7be0ad;
-      }
-      main {
-        padding: 20px;
-      }
-      footer {
-        
-        background-color: #457b9d;
-      }
-    </style>
   </head>
   <body>
     <div id="app"></div>
+    <script src="/media/css/theme-liawn.js"></script>
+
     <script>
       window.$docsify = {
-        disqus: 'shortname',
-        name: "zhanming",
-        logo: "",
-        repo: "https://eagle-a.github.io",
-        loadSidebar: true,
-        themeColor: "#25798A",
-        coverpage: true,
-        search: [
-          "/", // => /README.md
-          "/guide", // => /guide.md
-          "/get-started", // => /get-started.md
-          "/zh-cn/", // => /zh-cn/README.md
-        ],
-        // 完整配置参数
+        name: "Liawn's blog", // 左侧侧边栏最顶部的文字
+        repo: "", // 右上角的挂件（跳转链接）
+        el: "#app", // 欢迎页
+        coverpage: true, // 开启封面功能
+        loadSidebar: true, // 开启侧边栏功能
+        loadNavbar: true, // 开启导航栏功能
+        // 解决控制台404问题
+        alias: {
+          /* 使用自定义的侧边栏 */
+          "/_sidebar.md": "/book/_sidebar.md",
+          "/book/.*/_sidebar.md": "/book/_sidebar.md",
+          "/book/.*/_sidebar.md": "/book/_sidebar.md",
+          /* 使用自定义的侧边栏 */
+          "/.*/_navbar.md": "/_navbar.md",
+        },
+        relativePath: true, // 启用相对路径
+        topMargin: 55, // 让你的内容页在滚动到指定的锚点时，距离页面顶部有一定空间
+        mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
+        auto2top: true, // 切换页面后是否自动跳转到页面顶部
+        onlyCover: true, // 让封面单独出现，封面滑动在移动端效果并不好，所有固定onlyCover为true
+        // search.min.js插件
         search: {
           maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-          paths: [], // or 'auto'
-          placeholder: "Type to search",
-
-          // 支持本地化
-          placeholder: {
-            "/zh-cn/": "搜索",
-            "/": "Type to search",
-          },
-
-          noData: "No Results!",
-
-          // 支持本地化
-          noData: {
-            "/zh-cn/": "找不到结果",
-            "/": "No Results",
-          },
-
+          paths: "auto", // or 'auto'
+          placeholder: "搜索",
+          noData: "没有搜索到相应的结果",
           // 搜索标题的最大层级, 1 - 6
-          depth: 2,
-
-          hideOtherSidebarContent: false, // 是否隐藏其他侧边栏内容
-
-          // 避免搜索索引冲突
-          // 同一域下的多个网站之间
-          namespace: "website-1",
-
-          // 使用不同的索引作为路径前缀（namespaces）
-          // 注意：仅适用于 paths: 'auto' 模式
-          //
-          // 初始化索引时，我们从侧边栏查找第一个路径
-          // 如果它与列表中的前缀匹配，我们将切换到相应的索引
-          pathNamespaces: ["/zh-cn", "/ru-ru", "/ru-ru/v1"],
-
-          // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
-          // 匹配到的字符串将被用来识别索引
-          pathNamespaces: /^(\/(zh-cn|ru-ru))?(\/(v1|v2))?/,
+          depth: 6,
+        },
+        // docsify-tabs插件
+        tabs: {
+          persist: true,
+          sync: true,
+          theme: "material",
+          tabComments: true,
+          tabHeadings: true,
         },
       };
-  </script>
-
+    </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-    
+
     <!-- alert 样式 -->
     <link
       rel="stylesheet"
@@ -133,10 +103,9 @@
     <script src="https://wugenqiang.github.io/CS-Notes/plugin/jquery.js"></script>
     <script src="https://wugenqiang.github.io/CS-Notes/plugin/jquery.goup.js"></script>
 
-     <!-- 评论 -->
+    <!-- 评论 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script>
-    
-    
+
     <!-- mouse click -->
     <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
 
@@ -156,14 +125,14 @@
         var todayHour = today.getHours();
         var todayMinute = today.getMinutes();
         var todaySecond = today.getSeconds();
-    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-    year - 作为date对象的年份，为4位年份值
-    month - 0-11之间的整数，做为date对象的月份
-    day - 1-31之间的整数，做为date对象的天数
-    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-    minutes - 0-59之间的整数，做为date对象的分钟数
-    seconds - 0-59之间的整数，做为date对象的秒数
-    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+year - 作为date对象的年份，为4位年份值
+month - 0-11之间的整数，做为date对象的月份
+day - 1-31之间的整数，做为date对象的天数
+hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+minutes - 0-59之间的整数，做为date对象的分钟数
+seconds - 0-59之间的整数，做为date对象的秒数
+microseconds - 0-999之间的整数，做为date对象的毫秒数 */
         var t1 = Date.UTC(2023, 10, 13, 0, 0, 0); //北京时间2020-02-10 00:00:00
         var t2 = Date.UTC(
           todayYear,
@@ -205,7 +174,6 @@
       }
       siteTime();
     </script>
-
     <footer>
       <span id="sitetime"></span> <br />
       <span>© 2023 - 至今</span>
