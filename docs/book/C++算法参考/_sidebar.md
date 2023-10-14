@@ -1,5 +1,4 @@
 - [_sidebar.md](_sidebar.md)
-- [_sidebar.md](C++算法参考\_sidebar.md)
 - [内容.md](C++算法参考\动态规划\内容.md)
 - [内容.md](C++算法参考\同余运算\内容.md)
 - [内容.md](C++算法参考\广度优先搜索\内容.md)
