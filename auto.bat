@@ -19,6 +19,7 @@ echo 5. 拉取远程主分支
 echo 6. 主分支合并分支  
 echo 7. 切换到分支  
 echo 8. 拉取远程主分支到本地分支  
+echo q. 一键取消代理
 echo X. 退出  
 
 :continue
@@ -108,6 +109,15 @@ if "%choice%"=="8" (
     git pull origin %remoteBranch%  
     goto :continue  
 )  
+
+if "%choice%"=="q" (  
+    echo  正在取消代理！
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+    echo  完成取消
+    goto :continue  
+)  
+
 if "%choice%"=="X" (
     echo 退出!
     goto :eof
