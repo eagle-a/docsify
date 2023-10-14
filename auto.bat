@@ -18,11 +18,11 @@ echo 3. 推送到远程主分支
 echo 4. 切换到主分支  
 echo 5. 拉取远程主分支  
 echo 6. 主分支合并分支  
-echo 7. 切换到分支  
-echo 8. 拉取远程主分支到本地分支  
-echo q. 一键取消代理
-echo  X.  退出  
+echo 7. 拉取远程主分支到本地分支  
+echo q. 取消代理
+echo X. 退出
 
+echo; 
 
 :continue
 set /p choice=请输入数字选择操作:  
@@ -97,15 +97,7 @@ if "%choice%"=="6" (
     goto :continue
 )
 
-if "%choice%"=="7" (
-    set /p remoteBranch=请输入远程分支:
-    echo 切换到分支;git checkout %remoteBranch%
-    git checkout hlt
-    echo;
-    goto :continue
-)
-
-if "%choice%"=="8" (  
+if "%choice%"=="7" (  
     echo 请输入要拉取的远程分支和本地分支名称:  
     set /p remoteBranch=请输入远程分支:   
     set /p localBranch=请输入本地分支:   
@@ -118,7 +110,7 @@ if "%choice%"=="q" (
     echo  正在取消代理！
     git config --global --unset http.proxy
     git config --global --unset https.proxy
-    echo  完成取消
+    echo 执行完毕！
     goto :continue  
 )  
 
@@ -128,7 +120,7 @@ if "%choice%"=="X" (
 )
 
 :eof
-echo 执行完毕！
+echo 按任意键自动退出！
 echo;
 
 pause
