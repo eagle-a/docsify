@@ -9,6 +9,7 @@ echo;
 echo 请先执行f. docsify serve docs
 
 echo; 
+echo see.查看命令
 echo f. 快速提交  
 echo 1. 添加变更:git add .  
 echo 2. 提交变更  
@@ -23,7 +24,23 @@ echo X. 退出
 
 :continue
 set /p choice=请输入数字选择操作:  
-  
+
+if "%choice%"=="see" (  
+echo f. 快速提交  
+echo 1. 添加变更:git add .  
+echo 2. 提交变更  
+echo 3. //推送到远程自己分支//
+echo 4. 切换到主分支  
+echo 5. 拉取远程主分支  
+echo 6. 主分支合并分支  
+echo 7. 推送到远程主分支  
+echo 8. 切换到分支  
+echo 9. 拉取远程主分支到本地分支  
+echo X. 退出  
+echo;  
+    goto :continue  
+)  
+
 if "%choice%"=="f" (  
     echo 开始添加变更:git add .  
     git add .  
