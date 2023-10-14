@@ -22,8 +22,8 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css"
     />
+    <link rel="stylesheet" href="/media/theme.css" />
   </head>
-
   <body>
     <!-- 定义加载时候的动作 -->
     <div id="app">加载中...</div>
@@ -105,7 +105,7 @@
         var todayHour = today.getHours();
         var todayMinute = today.getMinutes();
         var todaySecond = today.getSeconds();
-        var t1 = Date.UTC(2023, 10, 13, 0, 0, 0); 
+        var t1 = Date.UTC(2023, 10, 13, 0, 0, 0);
         var t2 = Date.UTC(
           todayYear,
           todayMonth,
@@ -146,12 +146,18 @@
       }
       siteTime();
     </script>
-    <footer>
+
+    <div class="footer">
+      <span class="scroll"></span>
+      <a href="https://eagle-a.github.io" target="_blank"></a>
+        <p class="info">
+          <i class="el-icon-phone"></i>电话:18726727768<br />
+          <i class="el-icon-message"></i>邮箱:18726727768@163.com<br />
+        </p>
+      </el-drawer>
       <span id="sitetime"></span> <br />
       <span>© 2023 - 至今</span>
-      <a href="https://eagle-a.github.io" target="_blank">
-        Enjoy To Share Blog</a
-      >
-    </footer>
+        Enjoy To Share Blog</a>
+   </div>
   </body>
 </html>
