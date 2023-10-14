@@ -9,8 +9,8 @@ def generate_menu(directory):
                 if file.endswith('.md'):
                     file_path = os.path.join(root, file)
                     relative_path = os.path.relpath(file_path, directory)  
-                    menu.append(
-                        '-[' + ''.join(file) + '](/book/' + relative_path + ')</br>')
+                    (shotname,extension) = os.path.splitext(file)
+                    menu.append('-[' + ''.join(shotname) + '](/book/' + relative_path + ')</br>')
     return menu
 
 directory = r'./docsify/docs/book'
