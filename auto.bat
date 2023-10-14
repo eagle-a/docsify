@@ -13,13 +13,12 @@ echo see.查看命令
 echo f. 快速提交  
 echo 1. 添加变更:git add .  
 echo 2. 提交变更  
-echo 3. //推送到远程自己分支//
+echo 3. 推送到远程主分支  
 echo 4. 切换到主分支  
 echo 5. 拉取远程主分支  
 echo 6. 主分支合并分支  
-echo 7. 推送到远程主分支  
-echo 8. 切换到分支  
-echo 9. 拉取远程主分支到本地分支  
+echo 7. 切换到分支  
+echo 8. 拉取远程主分支到本地分支  
 echo X. 退出  
 
 :continue
@@ -29,13 +28,12 @@ if "%choice%"=="see" (
 echo f. 快速提交  
 echo 1. 添加变更:git add .  
 echo 2. 提交变更  
-echo 3. //推送到远程自己分支//
+echo 3. 推送到远程主分支  
 echo 4. 切换到主分支  
 echo 5. 拉取远程主分支  
 echo 6. 主分支合并分支  
-echo 7. 推送到远程主分支  
-echo 8. 切换到分支  
-echo 9. 拉取远程主分支到本地分支  
+echo 7. 切换到分支  
+echo 8. 拉取远程主分支到本地分支  
 echo X. 退出  
 echo;  
     goto :continue  
@@ -64,12 +62,12 @@ if "%choice%"=="2" (
     goto :continue
 )
 
-::if "%choice%"=="3" (
-  ::  echo 将变更情况推送到远程自己分支:git push origin hlt
-  ::  git push -u origin main
-   :: echo;
-  ::  goto :continue
-::)
+if "%choice%"=="3" (
+    echo 将变更情况推送到远程自己分支:git push -u origin main
+    git push -u origin main
+    echo;
+    goto :continue
+)
 
 if "%choice%"=="4" (
     echo 切换到主分支:git checkout main
@@ -95,13 +93,6 @@ if "%choice%"=="6" (
 )
 
 if "%choice%"=="7" (
-    echo 将变更情况推送到远程主分支:git push origin main
-    git push origin main
-    echo;
-    goto :continue
-)
-
-if "%choice%"=="8" (
     set /p remoteBranch=请输入远程分支:
     echo 切换到分支;git checkout %remoteBranch%
     git checkout hlt
@@ -109,7 +100,7 @@ if "%choice%"=="8" (
     goto :continue
 )
 
-if "%choice%"=="9" (  
+if "%choice%"=="8" (  
     echo 请输入要拉取的远程分支和本地分支名称:  
     set /p remoteBranch=请输入远程分支:   
     set /p localBranch=请输入本地分支:   
