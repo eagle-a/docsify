@@ -6,9 +6,10 @@ title GIT一键提交
 color 0D  
 echo 当前目录是：%cd%  
 echo;  
-echo 请先执行f. docsify serve docs
 
+echo 请先执行文件init，完成docsify serve docs
 echo; 
+
 echo see.查看命令
 echo f. 快速提交  
 echo 1. 添加变更:git add .  
@@ -20,10 +21,12 @@ echo 6. 主分支合并分支
 echo 7. 切换到分支  
 echo 8. 拉取远程主分支到本地分支  
 echo q. 一键取消代理
-echo X. 退出  
+echo  X.  退出  
+
 
 :continue
 set /p choice=请输入数字选择操作:  
+echo; 
 
 if "%choice%"=="see" (  
 echo f. 快速提交  
@@ -35,6 +38,7 @@ echo 5. 拉取远程主分支
 echo 6. 主分支合并分支  
 echo 7. 切换到分支  
 echo 8. 拉取远程主分支到本地分支  
+echo q. 一键取消代理
 echo X. 退出  
 echo;  
     goto :continue  
