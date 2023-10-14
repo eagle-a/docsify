@@ -33,38 +33,83 @@
       window.$docsify = {
         // 项目名称
         name: "book",
+        logo: "public/image/favicon.ico",
         repo: "https://github/eagle-a.com",
+        disqus: "shortname", //Disqus评论系统支持
         loadSidebar: true, // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
         loadNavbar: false, // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
         coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
         maxLevel: 5, // 最大支持渲染的标题层级
         subMaxLevel: 4, // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
         mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
+        auto2top: true, //切换页面后是否自动跳转到页面顶部。
+        relativePath: true, // 启用相对路径
+        autoHeader: true, //autoHeader: true,
 
         /*搜索相关设置*/
         search: {
           maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-          paths: "auto", // 注意：仅适用于 paths: 'auto' 模式
+          paths: "auto", // or 'auto'
           placeholder: "搜索",
-          // 支持本地化
-          placeholder: {
-            "/zh-cn/": "搜索",
-            "/": "Type to search",
-          },
-          noData: "找不到结果",
-          depth: 4,
-          hideOtherSidebarContent: false,
-          namespace: "Docsify-Guide",
+          noData: "没有搜索到相应的结果",
+          depth: 6,
         },
+
+        plugins: [
+          function (hook) {
+            var footer = [
+              "<hr/>",
+              "<footer style =   'text-align: center;font-size: 16px;color: #457B9D;''>",
+              '<i class="el-icon-phone"></i>电话:18726727768<br />',
+              '<i class="el-icon-message"></i>邮箱:18726727768@163.com<br />',
+              '<span id="sitetime"></span> © 2023 - 至今 <br />',
+              '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span><br />',
+              '<span><a href="https://github.com/eagle-a/eagle-a">eagle-a</a> I Enjoy To Share</span><br />',
+              "</footer>",
+            ].join("");
+
+            hook.afterEach(function (html) {
+              return html + footer;
+            });
+          },
+
+          function (hook, vm) {
+            hook.beforeEach(function (html) {
+              var url =
+                "https://github.com/docsifyjs/docsify/blob/master/docs/" +
+                vm.route.file;
+              var editHtml = "[📝 EDIT DOCUMENT](" + url + ")\n";
+
+              return (
+                editHtml +
+                html +
+                "\n----\n" +
+                "Last modified {docsify-updated} " +
+                editHtml
+              );
+            });
+          },
+        ],
       };
     </script>
-
+    <!-- <script>
+      if (typeof navigator.serviceWorker !== "undefined") {
+        navigator.serviceWorker.register("sw.js");
+      }
+    </script> -->
+    
     <!-- docsify的js依赖 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+    <!-- 外链脚本 - External Script-->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+
     <!-- emoji表情支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
     <!-- 图片放大缩小支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+
     <!-- 搜索功能支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 
@@ -87,6 +132,16 @@
 
     <!-- mouse click -->
     <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+
+    <!--  这是一款为docsify提供文字统计的插件. -->
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+    <!-- 谷歌统计- Google Analytics -->
+    <script
+      src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"
+      data-ga="UA-XXXXX-Y"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
 
     <!-- 运行时间统计 -->
     <script language="javascript">
@@ -145,21 +200,5 @@
       }
       siteTime();
     </script>
-    <!-- <div style="  text-align: center;
-    font-size: 16px;
- 
-    width: auto;
-    background-color: #457B9D;">
-        <span class="scroll"></span>
-        <p class="info">
-          <i class="el-icon-phone"></i>电话:18726727768<br />
-          <i class="el-icon-message"></i>邮箱:18726727768@163.com<br />
-        </p>
-        <span id="sitetime"></span> <br />
-        <span>© 2023 - 至今</span>
-        <a href="https://github.com/eagle-a/eagle-a" target="_blank"
-          >Enjoy To Share</a
-        >
-      </div> -->
   </body>
 </html>
