@@ -38,7 +38,7 @@
         disqus: "shortname", //Disqus评论系统支持
         loadSidebar: true, // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
         loadNavbar: false, // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
-      //  coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+        coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
         maxLevel: 5, // 最大支持渲染的标题层级
         subMaxLevel: 4, // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
         mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
@@ -71,31 +71,14 @@
               return html + footer;
             });
           },
-
-          function (hook, vm) {
-            hook.beforeEach(function (html) {
-              var url =
-                "https://github.com/docsifyjs/docsify/blob/master/docs/" +
-                vm.route.file;
-              var editHtml = "[📝 EDIT DOCUMENT](" + url + ")\n";
-
-              return (
-                editHtml +
-                html +
-                "\n----\n" +
-                "Last modified {docsify-updated} " +
-                editHtml
-              );
-            });
-          },
         ],
       };
     </script>
-    <!-- <script>
+    <script>
       if (typeof navigator.serviceWorker !== "undefined") {
         navigator.serviceWorker.register("sw.js");
       }
-    </script> -->
+    </script>
 
     <!-- docsify的js依赖 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
