@@ -40,7 +40,7 @@
         loadNavbar: false, // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
         coverpage: true, // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
         maxLevel: 5, // 最大支持渲染的标题层级
-        subMaxLevel: 0, // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+        subMaxLevel: 2, // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
         mergeNavbar: true, // 小屏设备下合并导航栏到侧边栏
         auto2top: true, //切换页面后是否自动跳转到页面顶部。
         relativePath: true, // 启用相对路径
@@ -128,9 +128,6 @@
       href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
     />
 
-    <!-- 侧边栏目录折叠 -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-
     <!-- 支持回到顶部 -->
     <script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
 
@@ -139,6 +136,7 @@
 
     <!-- mouse click -->
     <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+
 
     <!-- 访问量统计 -->
     <script
