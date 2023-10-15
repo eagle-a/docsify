@@ -4,20 +4,23 @@ import os
 def generate_menu(directory):
     menu = []
     for root, dirs, files in os.walk(directory):
-        #for dir in dirs:
+        # for dir in dirs:
+        #     file_path = os.path.join(root, dir)
+        #     relative_path = os.path.relpath(file_path, directory)  
+        #     menu.append('- [' + ''.join(dir) + '](/book/' + relative_path + ')')
             for file in files:
                 if file.endswith('.md'):
                     file_path = os.path.join(root, file)
                     relative_path = os.path.relpath(file_path, directory)  
                     (shotname,extension) = os.path.splitext(file)
-                    menu.append('* [' + ''.join(shotname) + '](/book/' + relative_path + ')')
+                    menu.append('  * [' + ''.join(shotname) + '](/book/' + relative_path + ')')
     return menu
 
 directory = r'./docsify/docs/book'
 
 if __name__ == "__main__":
     menu = generate_menu(directory)
-    location = r'C:\Users\21216\Desktop\math_and_Program\docsify\docsify\docs\_sidebar.md'
+    location = r'C:\Users\21216\Desktop\math_and_Program\docsify\docsify\docs\book\_sidebar.md'
     f = open(location, 'w', encoding='utf-8')
     for menu1 in menu:
         f.write(menu1)
@@ -31,3 +34,15 @@ with open(location, 'r', encoding='utf-8') as file:
     
     with open(location, 'w', encoding='utf-8') as f:
         f.write(content)
+
+    # for root, dirs, files in os.walk(menu):
+    #     for dir in dirs:
+    #         file_path = os.path.join(root, dir)
+    #         relative_path = os.path.relpath(file_path, directory)  
+    #         menu.append('- [' + ''.join(dir) + '](/book/' + relative_path + ')')
+    #         for file in files:
+    #             if file.endswith('.md'):
+    #                 file_path = os.path.join(root, file)
+    #                 relative_path = os.path.relpath(file_path, directory)  
+    #                 (shotname,extension) = os.path.splitext(file)
+    #                 menu.append('  * [' + ''.join(shotname) + '](/book/' + relative_path + ')')
