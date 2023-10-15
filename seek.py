@@ -10,7 +10,7 @@ def generate_menu(directory):
                     file_path = os.path.join(root, file)
                     relative_path = os.path.relpath(file_path, directory)  
                     (shotname,extension) = os.path.splitext(file)
-                    menu.append('-[' + ''.join(shotname) + '](/book/' + relative_path + ')</br>')
+                    menu.append('* [' + ''.join(shotname) + '](/book/' + relative_path + ')')
     return menu
 
 directory = r'./docsify/docs/book'
